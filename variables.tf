@@ -30,6 +30,11 @@ variable "prefix" {
   description = "CIDR range for subnet"
 }
 
+variable "service_account" {
+  type        = string
+  description = "GCP service Account for TF"
+}
+
 # Dataproc Variables
 
 variable "dp_master_machine_type" {
@@ -83,5 +88,5 @@ variable "dp_preemptible_worker" {
 variable "software_config" {
   type        = string
   description = "Base Image Name"
-  default     = "2.2-debian12"
+  default     = "2.0.35-debian10"
 }

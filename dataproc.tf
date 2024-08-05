@@ -24,18 +24,14 @@ resource "google_dataproc_cluster" "spark-cluster" {
       }
     }
 
-    preemptible_worker_config {
-      num_instances = var.dp_preemptible_worker
-    }
-
     software_config {
       image_version = var.software_config
     }
 
     gce_cluster_config {
-      zone                   = "${var.region}-a"
-      subnetwork             = var.subnetwork_name
-      service_account        = "terraform-sa@spark-431403.iam.gserviceaccount.com"
+      # zone                   = "${var.region}-a"
+      # subnetwork             = var.subnetwork_name
+      service_account        = var.service_account
       service_account_scopes = ["cloud-platform"]
     }
   }

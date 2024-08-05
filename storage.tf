@@ -12,5 +12,5 @@ resource "google_storage_bucket" "dataproc-bucket" {
 resource "google_storage_bucket_iam_member" "dataproc-bucket" {
   bucket = google_storage_bucket.dataproc-bucket.name
   role   = "roles/storage.admin"
-  member = "serviceAccount:terraform-sa@spark-431403.iam.gserviceaccount.com"
+  member = "serviceAccount:${var.service_account}"
 }
